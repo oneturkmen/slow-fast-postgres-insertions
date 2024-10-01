@@ -5,7 +5,6 @@ from timer import timeit
 
 customers_data_filepath = "customers_data.csv"
 
-@timeit
 def read_customer_data(file_name):
     with open(file_name, mode='r') as file:
         csv_reader = csv.reader(file)
@@ -18,7 +17,6 @@ def read_customer_data(file_name):
     
     return rows
 
-@timeit
 def reset_customer_table():
     print("Resetting the 'customer' table ...")
     with psycopg.connect("host=localhost dbname=customers user=admin password=admin port=5555") as conn:
